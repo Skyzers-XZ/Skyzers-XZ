@@ -5,137 +5,141 @@
     </style>
 
     <linearGradient id="snapBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#1A1A1A"/>
-      <stop offset="100%" stop-color="#111111"/>
+      <stop offset="0%"   stop-color="#181818"/>
+      <stop offset="100%" stop-color="#101010"/>
     </linearGradient>
-
     <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="#252525"/>
-      <stop offset="100%" stop-color="#1A1A1A"/>
+      <stop offset="0%"   stop-color="#232323"/>
+      <stop offset="100%" stop-color="#181818"/>
     </linearGradient>
-
     <linearGradient id="verifiedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#3A3A3A"/>
-      <stop offset="100%" stop-color="#2A2A2A"/>
+      <stop offset="0%"   stop-color="#2C2C2C"/>
+      <stop offset="100%" stop-color="#222222"/>
     </linearGradient>
 
     <filter id="snapGlow">
-      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feGaussianBlur stdDeviation="1.8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-
-    <clipPath id="snapClip">
-      <rect width="460" height="280" rx="12"/>
-    </clipPath>
-
-    <pattern id="snapDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="10" cy="10" r="0.8" fill="#2A2A2A"/>
+    <clipPath id="snapClip"><rect width="460" height="280" rx="12"/></clipPath>
+    <pattern id="snapDots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.7" fill="#222222"/>
     </pattern>
   </defs>
 
   <g clip-path="url(#snapClip)">
-
     <!-- Background -->
     <rect width="460" height="280" fill="url(#snapBg)"/>
     <rect width="460" height="280" fill="url(#snapDots)"/>
 
-    <!-- Top bar (VSCode-style title bar) -->
+    <!-- Title bar -->
     <rect width="460" height="36" fill="url(#headerGrad)"/>
+    <line x1="0" y1="36" x2="460" y2="36" stroke="#242424" stroke-width="1"/>
 
-    <!-- Window buttons -->
-    <circle cx="18" cy="18" r="5.5" fill="#3A3A3A"/>
-    <circle cx="34" cy="18" r="5.5" fill="#3A3A3A"/>
-    <circle cx="50" cy="18" r="5.5" fill="#3A3A3A"/>
+    <!-- ── macOS window dots ── -->
+    <!-- Red: close -->
+    <circle cx="18" cy="18" r="5.5" fill="#FF5F57"/>
+    <circle cx="18" cy="18" r="5.5" fill="none" stroke="#E0443E" stroke-width="0.5" opacity="0.5"/>
+    <!-- Yellow: minimize -->
+    <circle cx="34" cy="18" r="5.5" fill="#FEBC2E"/>
+    <circle cx="34" cy="18" r="5.5" fill="none" stroke="#D09B1A" stroke-width="0.5" opacity="0.5"/>
+    <!-- Green: maximize -->
+    <circle cx="50" cy="18" r="5.5" fill="#28C840"/>
+    <circle cx="50" cy="18" r="5.5" fill="none" stroke="#1A9E2E" stroke-width="0.5" opacity="0.5"/>
 
     <!-- Tab title -->
-    <text x="72" y="23" font-family="JetBrains Mono,monospace" font-size="11" fill="#888888">📦 skyzers-xz.profile-card</text>
+    <text x="70" y="23" font-family="JetBrains Mono,monospace" font-size="11" fill="#7A7A7A">
+      📦  skyzers-xz.profile-card
+    </text>
 
-    <!-- Top bar bottom border -->
-    <line x1="0" y1="36" x2="460" y2="36" stroke="#2A2A2A" stroke-width="1"/>
+    <!-- Left sidebar accent -->
+    <rect x="0" y="36" width="4" height="244" fill="#1E1E1E"/>
 
-    <!-- Left sidebar accent (VSCode activity bar) -->
-    <rect x="0" y="36" width="4" height="244" fill="#232323"/>
-
-    <!-- === EXTENSION ICON AREA === -->
-    <!-- Icon background -->
-    <rect x="22" y="52" width="72" height="72" rx="10" fill="#1E1E1E" stroke="#2E2E2E" stroke-width="1"/>
-
-    <!-- Icon content: stylized "SX" -->
-    <text x="58" y="97" font-family="JetBrains Mono,monospace" font-size="26" font-weight="700"
-          text-anchor="middle" fill="#C0C0C0" filter="url(#snapGlow)">SX</text>
+    <!-- ── ICON AREA ── -->
+    <rect x="20" y="50" width="74" height="74" rx="10" fill="#1A1A1A" stroke="#282828" stroke-width="1"/>
+    <text x="57" y="96" font-family="JetBrains Mono,monospace" font-size="26"
+          font-weight="700" text-anchor="middle" fill="#B8B8B8" filter="url(#snapGlow)">SX</text>
 
     <!-- Version badge -->
-    <rect x="22" y="130" width="72" height="18" rx="4" fill="#252525" stroke="#333333" stroke-width="1"/>
-    <text x="58" y="143" font-family="JetBrains Mono,monospace" font-size="9" fill="#666666" text-anchor="middle">v1.0.0</text>
+    <rect x="20" y="130" width="74" height="18" rx="4" fill="#1F1F1F" stroke="#2E2E2E" stroke-width="1"/>
+    <text x="57" y="143" font-family="JetBrains Mono,monospace" font-size="9"
+          fill="#585858" text-anchor="middle">v1.0.0</text>
 
-    <!-- === EXTENSION METADATA === -->
-
-    <!-- Publisher line -->
-    <text x="110" y="68" font-family="JetBrains Mono,monospace" font-size="10" fill="#555555">PUBLISHER</text>
-    <text x="110" y="84" font-family="JetBrains Mono,monospace" font-size="13" fill="#CCCCCC" font-weight="600">Skyzers-XZ</text>
+    <!-- ── METADATA ── -->
+    <!-- Publisher -->
+    <text x="108" y="66" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#505050">PUBLISHER</text>
+    <text x="108" y="82" font-family="JetBrains Mono,monospace" font-size="13"
+          fill="#C8C8C8" font-weight="600">Skyzers-XZ</text>
 
     <!-- Verified badge -->
-    <rect x="110" y="90" width="78" height="18" rx="9" fill="url(#verifiedGrad)" stroke="#3A3A3A" stroke-width="1"/>
-    <text x="149" y="103" font-family="JetBrains Mono,monospace" font-size="9" fill="#888888" text-anchor="middle">✓ Verified Dev</text>
+    <rect x="108" y="88" width="82" height="18" rx="9" fill="url(#verifiedGrad)" stroke="#333" stroke-width="1"/>
+    <text x="149" y="101" font-family="JetBrains Mono,monospace" font-size="9"
+          fill="#7A7A7A" text-anchor="middle">✓  Verified Dev</text>
 
-    <!-- Name -->
-    <text x="110" y="124" font-family="JetBrains Mono,monospace" font-size="10" fill="#555555">DISPLAY NAME</text>
-    <text x="110" y="140" font-family="JetBrains Mono,monospace" font-size="15" fill="#E0E0E0" font-weight="700">Skyzers-XZ</text>
+    <!-- Display Name -->
+    <text x="108" y="124" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#505050">DISPLAY NAME</text>
+    <text x="108" y="140" font-family="JetBrains Mono,monospace" font-size="15"
+          fill="#E0E0E0" font-weight="700">Skyzers-XZ</text>
 
     <!-- Description -->
-    <text x="110" y="158" font-family="JetBrains Mono,monospace" font-size="10" fill="#666666">Full Stack Developer · Indonesia 🇮🇩</text>
+    <text x="108" y="157" font-family="JetBrains Mono,monospace" font-size="10" fill="#626262">
+      Full Stack Developer · Indonesia 🇮🇩
+    </text>
 
     <!-- Divider -->
-    <line x1="18" y1="172" x2="442" y2="172" stroke="#222222" stroke-width="1"/>
+    <line x1="16" y1="170" x2="444" y2="170" stroke="#1F1F1F" stroke-width="1"/>
 
-    <!-- Stats row (VSCode extension stats style) -->
-    <!-- Downloads -->
-    <text x="26" y="192" font-family="JetBrains Mono,monospace" font-size="9" fill="#555555">⬇ INSTALLS</text>
-    <text x="26" y="208" font-family="JetBrains Mono,monospace" font-size="14" fill="#C0C0C0" font-weight="600">∞</text>
+    <!-- ── STATS ROW ── -->
+    <!-- Installs -->
+    <text x="24"  y="190" font-family="JetBrains Mono,monospace" font-size="9" fill="#4A4A4A">⬇  INSTALLS</text>
+    <text x="24"  y="207" font-family="JetBrains Mono,monospace" font-size="14" fill="#B8B8B8" font-weight="600">∞</text>
 
     <!-- Rating -->
-    <text x="110" y="192" font-family="JetBrains Mono,monospace" font-size="9" fill="#555555">★ RATING</text>
-    <text x="110" y="208" font-family="JetBrains Mono,monospace" font-size="14" fill="#C0C0C0" font-weight="600">5.0</text>
+    <text x="106" y="190" font-family="JetBrains Mono,monospace" font-size="9" fill="#4A4A4A">★  RATING</text>
+    <text x="106" y="207" font-family="JetBrains Mono,monospace" font-size="14" fill="#B8B8B8" font-weight="600">5.0</text>
 
     <!-- Repos -->
-    <text x="194" y="192" font-family="JetBrains Mono,monospace" font-size="9" fill="#555555">◈ REPOS</text>
-    <text x="194" y="208" font-family="JetBrains Mono,monospace" font-size="14" fill="#C0C0C0" font-weight="600">github</text>
+    <text x="188" y="190" font-family="JetBrains Mono,monospace" font-size="9" fill="#4A4A4A">◈  REPOS</text>
+    <text x="188" y="207" font-family="JetBrains Mono,monospace" font-size="12" fill="#888" font-weight="600">github</text>
 
     <!-- Category -->
-    <text x="295" y="192" font-family="JetBrains Mono,monospace" font-size="9" fill="#555555">◎ CATEGORY</text>
-    <text x="295" y="208" font-family="JetBrains Mono,monospace" font-size="12" fill="#888888" font-weight="600">Developer Tools</text>
+    <text x="290" y="190" font-family="JetBrains Mono,monospace" font-size="9" fill="#4A4A4A">◎  CATEGORY</text>
+    <text x="290" y="207" font-family="JetBrains Mono,monospace" font-size="11" fill="#787878" font-weight="600">Developer Tools</text>
 
-    <!-- Tags -->
-    <line x1="18" y1="220" x2="442" y2="220" stroke="#1E1E1E" stroke-width="1"/>
+    <!-- Divider -->
+    <line x1="16" y1="218" x2="444" y2="218" stroke="#1A1A1A" stroke-width="1"/>
 
-    <!-- Tech tags -->
-    <rect x="26" y="230" width="50" height="18" rx="4" fill="#2A3040"/>
-    <text x="51" y="243" font-family="JetBrains Mono,monospace" font-size="9" fill="#5A9ECA" text-anchor="middle">TypeScript</text>
+    <!-- ── TAG CHIPS ── -->
+    <rect x="24"  y="228" width="58" height="18" rx="4" fill="#182232"/>
+    <text x="53"  y="241" font-family="JetBrains Mono,monospace" font-size="9"
+          fill="#5A9ECA" text-anchor="middle">TypeScript</text>
 
-    <rect x="82" y="230" width="42" height="18" rx="4" fill="#2A3530"/>
-    <text x="103" y="243" font-family="JetBrains Mono,monospace" font-size="9" fill="#4FC978" text-anchor="middle">Python</text>
+    <rect x="88"  y="228" width="44" height="18" rx="4" fill="#142018"/>
+    <text x="110" y="241" font-family="JetBrains Mono,monospace" font-size="9"
+          fill="#4FC978" text-anchor="middle">Python</text>
 
-    <rect x="130" y="230" width="28" height="18" rx="4" fill="#2A3040"/>
-    <text x="144" y="243" font-family="JetBrains Mono,monospace" font-size="9" fill="#5AB8E0" text-anchor="middle">Go</text>
+    <rect x="138" y="228" width="28" height="18" rx="4" fill="#101C26"/>
+    <text x="152" y="241" font-family="JetBrains Mono,monospace" font-size="9"
+          fill="#5AB8E0" text-anchor="middle">Go</text>
 
-    <rect x="164" y="230" width="30" height="18" rx="4" fill="#3A2A2A"/>
-    <text x="179" y="243" font-family="JetBrains Mono,monospace" font-size="9" fill="#E07050" text-anchor="middle">Rust</text>
+    <rect x="172" y="228" width="30" height="18" rx="4" fill="#261410"/>
+    <text x="187" y="241" font-family="JetBrains Mono,monospace" font-size="9"
+          fill="#E07050" text-anchor="middle">Rust</text>
 
-    <rect x="200" y="230" width="28" height="18" rx="4" fill="#2D2A3D"/>
-    <text x="214" y="243" font-family="JetBrains Mono,monospace" font-size="9" fill="#9580D0" text-anchor="middle">PHP</text>
+    <rect x="208" y="228" width="28" height="18" rx="4" fill="#1A1428"/>
+    <text x="222" y="241" font-family="JetBrains Mono,monospace" font-size="9"
+          fill="#9580D0" text-anchor="middle">PHP</text>
 
-    <rect x="234" y="230" width="56" height="18" rx="4" fill="#2A2A2A"/>
-    <text x="262" y="243" font-family="JetBrains Mono,monospace" font-size="9" fill="#888888" text-anchor="middle">Full Stack</text>
+    <rect x="242" y="228" width="58" height="18" rx="4" fill="#1E1E1E"/>
+    <text x="271" y="241" font-family="JetBrains Mono,monospace" font-size="9"
+          fill="#787878" text-anchor="middle">Full Stack</text>
 
-    <!-- Blinking cursor end -->
-    <rect x="424" y="231" width="6" height="16" rx="1" fill="#555555">
+    <!-- Blinking cursor -->
+    <rect x="420" y="229" width="6" height="16" rx="1" fill="#505050">
       <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
     </rect>
 
-    <!-- Footer border -->
-    <rect width="460" height="280" rx="12" fill="none" stroke="#2E2E2E" stroke-width="1.5"/>
+    <!-- Card border -->
+    <rect width="460" height="280" rx="12" fill="none" stroke="#282828" stroke-width="1.5"/>
   </g>
 </svg>
